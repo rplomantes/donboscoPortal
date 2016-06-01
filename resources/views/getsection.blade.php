@@ -3,6 +3,7 @@
 <div class="col-md-3">
 </div>
 <div class="col-md-6">
+    <h3>Student level and section details</h3>
 @if(count($studentname)>0)
 @foreach($studentname as $studname)
 <table class="table table-striped"> 
