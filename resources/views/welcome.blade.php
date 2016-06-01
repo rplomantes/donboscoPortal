@@ -1,45 +1,30 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+@extends("app")
+@section("content")
+<div class="container">
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
+    <h3>Welcome to Don Bosco Makati Institute of Makati online portal!</h3>
+    @if (count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+    <form method="POST" action = "{{url('getsection')}}">
+        {!! csrf_field() !!} 
+    <table class="table table-responsive">
+        <tr><td>Please type the student number and last name to inquire the section of the student.</td></tr>
+        <tr><td><label>Student Number:</label> <input type = "text" name="studentid" id="studentid" class="form form-control"></td></tr>
+        <tr><td><label>Last Name:</label>  <input type = "text" id="lastname" name="lastname" class="form form-control"></td></tr>
+        <tr><td><input type="submit" value="Submit Query!!" class="form form-control btn btn-primary"></td></tr>
+    </table>    
+    </form>    
+</div>    
+</div>
 
-        <style>
-            html, body {
-                height: 100%;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
-        </div>
-    </body>
-</html>
+@stop
